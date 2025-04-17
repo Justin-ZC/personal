@@ -51,14 +51,17 @@ jobs:
         run: |
           javascript-obfuscator origin.js --output _worker.js \
             --compact true \
+            --control-flow-flattening false \
+            --control-flow-flattening-threshold 0.5 \
+            --dead-code-injection false \
+            --dead-code-injection-threshold 0.5 \
             --identifier-names-generator hexadecimal \
             --rename-globals true \
-            --string-array true \
-            --string-array-encoding 'base64' \
-            --string-array-threshold 0.75 \
+            --string-array false \
+            --string-array-encoding 'rc4' \
+            --string-array-threshold 0.5 \
             --transform-object-keys true \
-            --self-defending false \
-            --simplify true
+            --unicode-escape-sequence true
           ls -l _worker.js
           head -n 10 _worker.js
 
