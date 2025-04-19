@@ -34,7 +34,7 @@ jobs:
       - name: Copy local unobfuscated-worker.js
         run: |
           # 定义源文件路径
-          SOURCE_FILE="../../unobfuscated-worker-v3.1.3.js"
+          SOURCE_FILE="$GITHUB_WORKSPACE/unobfuscated-worker-v3.1.3.js"
           DEST_FILE="origin.js"
           # 检查文件是否存在
           if [ ! -f "$SOURCE_FILE" ]; then
